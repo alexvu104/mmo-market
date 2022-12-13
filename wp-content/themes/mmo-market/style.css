@@ -1,0 +1,78 @@
+/*
+Theme Name: MMO Market
+Theme URI: https:/lattex.co
+Author: LatteX
+Author URI: https:/lattex.co
+Description: MMO Market heme.
+Template: orchid-store
+License: GNU General Public License v3
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Version: 1.0.0
+Text Domain: mmo-market
+*/
+
+@media (min-width: 768px){
+  .woocommerce .columns-2 ul.products.columns-2 li.product, 
+  .woocommerce-page .columns-2 ul.products.columns-2 li.product, 
+  .woocommerce.columns-2 ul.products.columns-2 li, 
+  .woocommerce.columns-2 ul.products.columns-2 li.product { 
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  ul.products.columns-2 .product-main-wrap {
+    display: flex;
+  }
+
+  ul.products.columns-2 .product-info-wrap {
+    text-align: left;
+  }
+  .woocommerce ul.products li.product h2.woocommerce-loop-product__title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+  }
+  .woocommerce ul.products li.product span.price{
+    color: #E26143;
+    padding-bottom: 20px;
+  }
+  .columns-2 .product-thumb-wrap.imghover {
+    width: 350px;
+  }
+}
+.price_label,  .woocommerce div.product .summary p.price,
+.woocommerce div.product .summary span.price {
+  color: #E26143;
+  font-weight: 600;
+}
+.excerpt-shop {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.product_title.entry-title, 
+.product-info-wrap p.stock {
+	color: #0286E7;
+}
+.product-info-wrap p.stock {
+	margin-bottom: 3px;
+}
+.variations_form.cart tr {
+  display: flex;
+  flex-direction: column;
+}
+.variations_form.cart tr .label label  {
+  display: block;
+}
+.woocommerce-page div.woocommerce-info a.showcoupon {
+	color: #fff;
+}
+.reset_variations {
+	padding-top: 10px;
+	display: inline-block;
+}
