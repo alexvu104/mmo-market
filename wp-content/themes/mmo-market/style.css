@@ -133,3 +133,17 @@ p.wallet-info {
 p.wallet-info a{
   color: #0286E7;
 }
+
+@media (max-width: 1024px) {
+  .flex-col.left {
+    width: 100%;
+  }
+  .flex-col.left .nav-col {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+  .menu-toggle {
+    margin-right: auto;
+  }
+}
