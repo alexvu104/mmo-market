@@ -9,13 +9,18 @@
 
 defined( 'ABSPATH' ) || exit;
 
-global $product;
+global $product, $woocommerce;
 $user_id = get_current_user_id();
 $wallet_bal = get_user_meta( $user_id, 'wps_wallet', true );
 if ( empty( $wallet_bal ) ) {
 	$wallet_bal = 0;
 }
 $wallet_bal = apply_filters( 'wps_wsfw_show_converted_price', $wallet_bal );
+$available_variations = $product->get_available_variations();
+$variation_id=$available_variations[0]['variation_id'];
+$product_variation = new WC_Product_Variation( $variation_id );
+$regular_price = $product_variation->regular_price;
+
 ?>
 <div class="woocommerce-variation-add-to-cart variations_button">
 	<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
@@ -33,7 +38,7 @@ $wallet_bal = apply_filters( 'wps_wsfw_show_converted_price', $wallet_bal );
 
 	do_action( 'woocommerce_after_add_to_cart_quantity' );
 	?>
-	<?php if ($wallet_bal > 0): ?>
+	<?php if ($wallet_bal > $regular_price): ?>
 		<button type="submit" class="single_add_to_cart_button button alt<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
 	<?php else: ?>
 		<button type="submit" disabled class="single_add_to_cart_button button alt<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
