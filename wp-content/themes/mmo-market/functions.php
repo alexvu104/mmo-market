@@ -60,3 +60,24 @@ function custom_remove_woo_checkout_fields( $fields ) {
     
     return $fields;
 }
+
+function add_wallet_header (){
+	$user_id = get_current_user_id();
+	$wallet_bal = get_user_meta( $user_id, 'wps_wallet', true );
+	if ( empty( $wallet_bal ) ) {
+		$wallet_bal = 0;
+	}
+	?>
+		<div class="wallet-header flex"> 
+		<p>Số dư ví:</p>
+		<p class="amount-wallet">
+			<?php
+			$wallet_bal = apply_filters( 'wps_wsfw_show_converted_price', $wallet_bal );
+			 echo wp_kses_post( wc_price( $wallet_bal, array( 'currency' => $current_currency ) ) );
+			?>
+		</p>
+	</div>
+	<?php
+}
+
+add_filter( 'orchid_store_primary_navigation' , 'add_wallet_header', 15 );
