@@ -134,6 +134,14 @@ p.wallet-info a{
   color: #0286E7;
 }
 
+div.woocommerce-info {
+	background-color: #0286E7 !important;
+}
+
+div.woocommerce-info::before {
+	color: #fff;
+}
+
 @media (max-width: 1024px) {
   .flex-col.left {
     width: 100%;
@@ -146,4 +154,16 @@ p.wallet-info a{
   .menu-toggle {
     margin-right: auto;
   }
+}
+.woocommerce-cart div.wc-proceed-to-checkout a.checkout-button{
+  display: inline-block;
+} 
+div.woocommerce #payment #place_order, 
+div.woocommerce-page #payment #place_order {
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	display: inline-block;
+	width: auto;
 }
