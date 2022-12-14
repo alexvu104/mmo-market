@@ -57,7 +57,7 @@ Text Domain: mmo-market
 
 .product_title.entry-title, 
 .product-info-wrap p.stock {
-	color: #0286E7;
+	color: #3c9045;
 }
 .product-info-wrap p.stock {
 	margin-bottom: 3px;
@@ -79,15 +79,15 @@ Text Domain: mmo-market
 
 div.wps_wcb_wallet_balance_container,
 div.wps_wcb_content_template .wallet-tabs ul li.active a{
-	background: #0286E7;
+	background: #3c9045;
 }
 .content #wps_wallet_transfer_form .wps-btn__filled {
-	background: #0286E7 !important;
+	background: #3c9045 !important;
 }
 
 div.wps_wcb_content_template .content #wps_wallet_transfer_form input, 
 div.wps_wcb_content_template .content #wps_wallet_transfer_form textarea {
-	border-color: #0286E7;
+	border-color: #3c9045;
 	border-radius: 4px;
 	background: #fff;
 }
@@ -130,13 +130,22 @@ p.wallet-info {
   color: #ff0000;
 }
 
-p.wallet-info a{
-  color: #0286E7;
+p.wallet-info a,
+.wps_wcb_content_template .wallet-tabs ul li.active h3{
+  color: #3c9045;
 }
 
 div.woocommerce-info,
 p.woocommerce-info {
-	background-color: #0286E7 !important;
+	background-color: #3c9045 !important;
+}
+
+.wps_wcb_content_template .wallet-tabs ul li.active a {
+	box-shadow: 0 10px 30px rgb(60 144 69 / 50%), inset -5px -5px 15px rgb(60 144 69 / 50%), inset 6px 8px 20px hsl(0deg 0% 100% / 40%);
+}
+
+.wps_wcb_content_template .content #wps_wallet_transfer_form .wps-wallet-field-container .wps-btn__filled {
+	box-shadow: 0 10px 30px rgb(60 144 69 / 50%),inset -5px -5px 15px rgb(60 144 69 / 50%),inset 6px 8px 20px hsla(0,0%,100%,.4);
 }
 
 div.woocommerce-info::before,
@@ -168,4 +177,8 @@ div.woocommerce-page #payment #place_order {
 	-ms-border-radius: 0;
 	display: inline-block;
 	width: auto;
+}
+
+img.custom-logo {
+	width: 210px;
 }
