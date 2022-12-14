@@ -19,6 +19,13 @@ defined( 'ABSPATH' ) || exit;
 
 global $product;
 
+$user_id = get_current_user_id();
+$wallet_bal = get_user_meta( $user_id, 'wps_wallet', true );
+if ( empty( $wallet_bal ) ) {
+	$wallet_bal = 0;
+}
+$wallet_bal = apply_filters( 'wps_wsfw_show_converted_price', $wallet_bal );
+
 if ( ! $product->is_purchasable() ) {
 	return;
 }
@@ -45,9 +52,12 @@ if ( $product->is_in_stock() ) : ?>
 
 		do_action( 'woocommerce_after_add_to_cart_quantity' );
 		?>
-
-		<button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button button alt<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
-
+		<?php if ($wallet_bal > 0): ?>
+			<button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button button alt<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+		<?php else: ?>
+			<button disabled type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button button alt<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+			<p class="wallet-info">Số dư trong ví của bạn không đủ. Bạn cần <a href="/nap-tien/">nạp tiền</a> để tiếp tục mua hàng.</p>
+		<?php endif ?>
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>
 
