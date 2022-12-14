@@ -134,11 +134,13 @@ p.wallet-info a{
   color: #0286E7;
 }
 
-div.woocommerce-info {
+div.woocommerce-info,
+p.woocommerce-info {
 	background-color: #0286E7 !important;
 }
 
-div.woocommerce-info::before {
+div.woocommerce-info::before,
+p.woocommerce-info::before {
 	color: #fff;
 }
 
